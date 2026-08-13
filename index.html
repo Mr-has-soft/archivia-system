@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="mDdM2Xvcyr-j2MWWjwcmSa-N0G0pu76YrGj4voghlho" />
+    
     <!-- 1. تعديل الـ Title: إضافة الكلمات المفتاحية الأساسية التي يبحث عنها العميل -->
     <title>أرشيفيا برو | نظام إدارة وثائق وأرشفة إلكترونية للشركات (EDMS)</title>
     
@@ -100,34 +101,65 @@
             </div>
         </div>
     </div>
-<!-- قسم طلب النظام والتواصل -->
-<div style="text-align: center; margin: 50px auto; padding: 40px 20px; background-color: #f4f7f6; border-radius: 12px; border: 1px solid #e1e8ed; max-width: 800px; font-family: Arial, sans-serif;">
-    
-    <h2 style="color: #2c3e50; margin-bottom: 15px;">هل ترغب في تطبيق نظام Archivia Pro في مؤسستك؟</h2>
-    
-    <p style="color: #555; font-size: 18px; line-height: 1.6; margin-bottom: 30px;">
-        لضمان أعلى معايير الأمان والسرية للوثائق، يتطلب الدخول إلى النظام صلاحيات مسبقة.<br>
-        لطلب بيانات الدخول التجريبية (Demo) أو لمناقشة تخصيص النظام لشركتك، نسعد بتواصلك مع فريق <strong>YouTurn</strong> لتطوير البرمجيات.
-    </p>
-    
-    <!-- أزرار التواصل -->
-    <div>
-        <!-- زر الواتساب -->
-        <a href="https://wa.me/201005174088?text=مرحباً، أود الاستفسار عن نظام Archivia Pro وكيفية الحصول على بيانات الدخول." 
-           target="_blank" 
-           style="display: inline-block; background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; margin: 10px; transition: 0.3s;">
-            💬 تواصل معنا عبر واتساب
-        </a>
 
-        <!-- زر الإيميل -->
-        <a href="mailto:hany.abd.elmalik77@gmail.com?subject=طلب تجربة نظام Archivia Pro" 
-           style="display: inline-block; background-color: #0056b3; color: white; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; margin: 10px; transition: 0.3s;">
-            ✉️ إرسال بريد إلكتروني
-        </a>
+    <!-- قسم استمارة التسجيل والتحويل المباشر للواتساب -->
+    <div style="max-width: 650px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; font-family: 'Cairo', sans-serif;" dir="rtl">
+
+        <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 10px; font-weight: bold;">طلب تجربة نظام Archivia Pro</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 25px; font-size: 15px;">
+            سجل بياناتك الآن، وسيتم تحويلك فوراً لمحادثة الواتساب لاستلام بيانات الدخول.
+        </p>
+
+        <!-- بداية النموذج -->
+        <form id="whatsappForm">
+            
+            <!-- اسم العميل -->
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #334155; font-weight: bold;">الاسم بالكامل *</label>
+                <input type="text" id="clientName" required placeholder="أدخل اسمك الكريم" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <!-- اسم الشركة -->
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #334155; font-weight: bold;">اسم الشركة / الجهة *</label>
+                <input type="text" id="clientCompany" required placeholder="اسم الشركة أو القطاع" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box;">
+            </div>
+
+            <!-- زر الحفظ والتحويل -->
+            <button type="submit" style="width: 100%; background-color: #25D366; color: white; padding: 14px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; margin-top: 10px;">
+                💬 حفظ البيانات والتوجه للواتساب
+            </button>
+
+        </form>
     </div>
 
-</div>
-<!-- نهاية قسم التواصل -->
+    <!-- كود الجافاسكريبت لربط البيانات بالواتساب -->
+    <script>
+        document.getElementById("whatsappForm").addEventListener("submit", function(event) {
+            // منع الصفحة من إعادة التحميل عند الضغط على الزر
+            event.preventDefault(); 
+
+            // جلب البيانات التي أدخلها العميل
+            var name = document.getElementById("clientName").value;
+            var company = document.getElementById("clientCompany").value;
+
+            // رقم الواتساب الخاص بك
+            var phoneNumber = "201005174088"; 
+
+            // صياغة الرسالة التي ستصلك على الواتساب
+            var message = "مرحباً فريق YouTurn، أود الحصول على بيانات تجربة نظام Archivia Pro.\n\n" +
+                          "👤 الاسم: " + name + "\n" +
+                          "🏢 الشركة: " + company + "\n\n" +
+                          "في انتظاركم، شكراً.";
+
+            // تحويل العميل إلى واتساب مع الرسالة الجاهزة
+            var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+            
+            // فتح الواتساب في نافذة جديدة
+            window.open(whatsappURL, "_blank");
+        });
+    </script>
+    <!-- نهاية قسم التواصل -->
+
 </body>
 </html>
- 
