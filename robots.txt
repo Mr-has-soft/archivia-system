@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mr-has-soft.github.io/archivia-system/sitemap.xml
